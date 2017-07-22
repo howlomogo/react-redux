@@ -1,4 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {createStore} from 'redux';
+import allReducers from './js/reducers/reducer-all';
+import {Provider} from 'react-redux';
 
-ReactDOM.render(<h2>Test</h2>, document.getElementById('root'));
+import App from './js/components/App';
+
+const store = createStore(allReducers);
+
+
+
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>
+	, document.getElementById('root') 
+);
